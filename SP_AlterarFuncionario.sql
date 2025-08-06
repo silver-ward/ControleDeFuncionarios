@@ -1,0 +1,14 @@
+﻿CREATE PROCEDURE SP_AlterarFuncionario
+	@Id UNIQUEIDENTIFIER,
+	@Nome VARCHAR(150),
+	@Matricula VARCHAR(10),
+	@Cpf VARCHAR(14)
+
+	AS
+	BEGIN
+		UPDATE FUNCIONARIO
+			SET NOME = @Nome,
+				MATRICULA = @Matricula,
+				CPF = @Cpf
+			WHERE ID = @Id;
+	END

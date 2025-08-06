@@ -1,0 +1,10 @@
+﻿CREATE PROCEDURE SP_InserirFuncionario
+	@Nome VARCHAR(150),
+	@Matricula VARCHAR(10),
+	@Cpf VARCHAR(14)
+
+	AS
+	BEGIN
+		INSERT INTO FUNCIONARIO(ID, NOME, MATRICULA, CPF)
+			VALUES(NEWID(),@Nome,@Matricula,@Cpf);
+	END
