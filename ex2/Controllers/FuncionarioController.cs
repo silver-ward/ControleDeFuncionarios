@@ -20,8 +20,6 @@ namespace ex2.Controllers
         /// </summary>
         public void Cadastrar()
         {
-            Console.WriteLine("CADASTRO DE FUNCIONÁRIOS");
-            Console.WriteLine("Por favor, informe os seguintes dados do funcionário a ser cadastrado:");
 
             var funcionario = new Funcionario();
             var validationResults = new List<ValidationResult>();
@@ -99,8 +97,6 @@ namespace ex2.Controllers
         /// </summary>
         public void ConsultarTodos()
         {
-            Console.WriteLine("CONSULTA DE FUNCIONÁRIOS");
-            Console.WriteLine("Aqui está a lista de funcionários disponível no banco de dados:");
             
             var repository = new FuncionarioRepository();
             IEnumerable<Funcionario> funcionarios = repository.RetrieveAll();
