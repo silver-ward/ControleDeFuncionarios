@@ -23,29 +23,74 @@ namespace ex2.Controllers
             Console.WriteLine("CADASTRO DE FUNCIONÁRIOS");
             Console.WriteLine("Por favor, informe os seguintes dados do funcionário a ser cadastrado:");
 
-            Funcionario funcionario = new Funcionario();
+            var funcionario = new Funcionario();
+            var validationResults = new List<ValidationResult>();
 
             do
             {
                 Console.Write("Nome Completo: ");
                 funcionario.Nome = Console.ReadLine();
-            } while (string.IsNullOrWhiteSpace(funcionario.Nome));
+                
+                validationResults.Clear();
+                Validator.TryValidateProperty(funcionario.Nome,
+                    new ValidationContext(funcionario)
+                    {
+                        MemberName=nameof(Funcionario.Nome)
+                    },
+                    validationResults
+                    );
+
+                if (validationResults.Count > 0)
+                {
+                    Console.WriteLine(validationResults[0].ErrorMessage);
+                }
+
+            } while (validationResults.Count > 0);
 
             do
             {
                 Console.Write("Matrícula: ");
                 funcionario.Matricula = Console.ReadLine();
-            } while (string.IsNullOrWhiteSpace(funcionario.Matricula));
+
+                validationResults.Clear();
+                Validator.TryValidateProperty(funcionario.Matricula,
+                    new ValidationContext(funcionario)
+                    {
+                        MemberName=nameof(Funcionario.Matricula)
+                    },
+                    validationResults
+                    );
+
+                if(validationResults.Count > 0)
+                {
+                    Console.WriteLine(validationResults[0].ErrorMessage);
+                }
+
+            } while (validationResults.Count > 0);
 
             do
             {
                 Console.Write("CPF: ");
                 funcionario.Cpf = Console.ReadLine();
-            } while (string.IsNullOrWhiteSpace(funcionario.Cpf));
+
+                validationResults.Clear();
+                Validator.TryValidateProperty(funcionario.Cpf,
+                    new ValidationContext(funcionario)
+                    {
+                        MemberName = nameof(Funcionario.Cpf)
+                    },
+                    validationResults
+                    );
+
+                if (validationResults.Count > 0)
+                {
+                    Console.WriteLine(validationResults[0].ErrorMessage);
+                }
+
+            } while (validationResults.Count > 0);
 
             var repository = new FuncionarioRepository();
             repository.Insert(funcionario);
-
 
         }
 
