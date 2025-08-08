@@ -30,6 +30,17 @@ namespace ex2.Repositories
             }
         }
 
+        public Funcionario Retrieve(string nome)
+        {
+            string query = "SELECT * FROM FUNCIONARIO WHERE Nome = @Nome";
+            var funcionario = new Funcionario();
+
+            using (var connection = new SqlConnection(_appSettings.ConnectionString))
+            {
+                return connection.QueryFirstOrDefault<Funcionario>(query, new {Nome = nome});
+            }
+        }
+
         public IEnumerable<Funcionario> RetrieveAll()
         {
             string query = "SELECT * FROM FUNCIONARIO";

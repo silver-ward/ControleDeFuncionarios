@@ -12,7 +12,7 @@ namespace ex2.Entities
     /// </summary>
     public class Funcionario
     {
-        [Required(ErrorMessage = "Algo deu errado ao atribuir o número de identificação do funcionário.\nPor favor, tente novamente ou contate o suporte.")]
+        [Required(ErrorMessage = "Algo deu errado ao criar um número de identificação para o funcionário.\nPor favor, tente novamente ou contate o suporte.")]
         public Guid Id { get; set; } = Guid.NewGuid();
 
         [Required(ErrorMessage = "Este campo é obrigatório.")]

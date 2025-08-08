@@ -116,6 +116,27 @@ namespace ex2.Controllers
         /// </summary>
         public void ConsultarPorNome()
         {
+            string nome;
+            do
+            {
+                Console.WriteLine("Escreva o nome completo do funcionário a ser consultado: ");
+                nome = Console.ReadLine().Trim();
+            } while (string.IsNullOrWhiteSpace(nome));
+
+            var repository = new FuncionarioRepository();
+            var funcionario = repository.Retrieve(nome);
+            if (funcionario != null)
+            {
+                Console.WriteLine("Aqui estão os dados desse funcionário:");
+                Console.WriteLine();
+                Console.WriteLine($"Nome:......: {funcionario.Nome}");
+                Console.WriteLine($"Matrícula..: {funcionario.Matricula}");
+                Console.WriteLine($"CPF........: {funcionario.Cpf}");
+            }
+            else
+            {
+                Console.WriteLine("Nenhum dado encontrado.");
+            }
 
         }
 
