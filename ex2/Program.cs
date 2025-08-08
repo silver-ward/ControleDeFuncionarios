@@ -2,8 +2,11 @@
 
 var funcionarioController = new FuncionarioController();
 
-Console.WriteLine("Bem-vindo ao sistema de Funcionários!");
-Console.WriteLine(@"
+string option;
+do
+{
+    Console.WriteLine("Bem-vindo ao sistema de Funcionários!");
+    Console.WriteLine(@"
 Digite a sua opção e pressione Enter:
 [1] Cadastrar funcionário.
 [2] Consultar Todos os funcionários.
@@ -12,12 +15,27 @@ Digite a sua opção e pressione Enter:
 [5] Excluir um funcionário.
 [s] Sair.
 ");
-string option = Console.ReadLine().ToLower().Trim();
-switch (option)
-{
-    case "1":
-        // CADASTRO DE FUNCIONÁRIOS
-        funcionarioController.Cadastrar();
-        break;
-}
+    option = Console.ReadLine().ToLower().Trim();
+    switch (option)
+    {
+        case "1":
+            // CADASTRO DE FUNCIONÁRIOS
+            funcionarioController.Cadastrar();
+            break;
+        case "2":
+            funcionarioController.ConsultarTodos();
+            Console.ReadKey();
+            break;
+        case "3":
+            break;
+        case "4":
+            break;
+        case "5":
+            break;
+        case "s":
+            Console.WriteLine("Saindo...");
+            Console.WriteLine("Até mais!");
+            break;
+    }
 
+} while (option != "s");
