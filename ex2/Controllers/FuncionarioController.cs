@@ -104,6 +104,7 @@ namespace ex2.Controllers
             foreach(var funcionario in funcionarios)
             {
                 Console.WriteLine();
+                Console.WriteLine($"ID.........: {funcionario.Id}");
                 Console.WriteLine($"Nome:......: {funcionario.Nome}");
                 Console.WriteLine($"Matrícula..: {funcionario.Matricula}");
                 Console.WriteLine($"CPF........: {funcionario.Cpf}");
@@ -129,6 +130,7 @@ namespace ex2.Controllers
             {
                 Console.WriteLine("Aqui estão os dados desse funcionário:");
                 Console.WriteLine();
+                Console.WriteLine($"ID.........: {funcionario.Id}");
                 Console.WriteLine($"Nome:......: {funcionario.Nome}");
                 Console.WriteLine($"Matrícula..: {funcionario.Matricula}");
                 Console.WriteLine($"CPF........: {funcionario.Cpf}");
@@ -145,7 +147,8 @@ namespace ex2.Controllers
         /// </summary>
         public void Alterar()
         {
-
+            var repository = new FuncionarioRepository();
+            //repository.Update;
         }
 
         /// <summary>
