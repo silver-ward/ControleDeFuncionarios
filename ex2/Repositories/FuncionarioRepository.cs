@@ -16,7 +16,7 @@ namespace ex2.Repositories
     public class FuncionarioRepository
     {
         /// <summary>
-        /// Atributo privado somente leitura da classe AppSettings
+        /// Atributo privado somente-leitura da classe AppSettings
         /// </summary>
         private readonly AppSettings _appSettings = new AppSettings();
 
