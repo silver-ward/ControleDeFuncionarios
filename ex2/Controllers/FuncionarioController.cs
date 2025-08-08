@@ -148,7 +148,28 @@ namespace ex2.Controllers
         public void Alterar()
         {
             var repository = new FuncionarioRepository();
-            //repository.Update;
+            var funcionario = new Funcionario();
+
+            Guid id;
+            bool guidIsValid = false;
+            do
+            {
+                Console.WriteLine("Informe o ID do funcionário que deseja alterar.");
+                string input = Console.ReadLine().Trim();
+                guidIsValid = Guid.TryParse(input, out id);
+            } while (!guidIsValid);
+            
+            funcionario.Id = id;
+
+            Console.WriteLine("Ok! Agora informe Nome, Matrícula e CPF desejados para esse funcionário.");
+            Console.Write("Nome.......: ");
+            funcionario.Nome = Console.ReadLine();
+            Console.Write("Matrícula..: ");
+            funcionario.Matricula = Console.ReadLine();
+            Console.Write("CPF........: ");
+            funcionario.Cpf = Console.ReadLine();
+            
+            repository.Update(funcionario);
         }
 
         /// <summary>

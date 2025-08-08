@@ -44,8 +44,11 @@ Digite a sua opção e pressione Enter:
             Console.ReadKey();
             break;
         case "4":
+            Console.WriteLine("ALTERAÇÃO DE DADOS DE UM FUNCIONÁRIO");
+            funcionarioController.Alterar();
 
             Console.WriteLine();
+            Console.WriteLine("Dados do funcionário atualizados com sucesso!");
             Console.WriteLine("Pressione qualquer tecla para voltar ao menu inicial.");
             Console.ReadKey();
             break;
