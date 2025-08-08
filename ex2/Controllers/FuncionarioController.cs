@@ -99,6 +99,19 @@ namespace ex2.Controllers
         /// </summary>
         public void ConsultarTodos()
         {
+            Console.WriteLine("CONSULTA DE FUNCIONÁRIOS");
+            Console.WriteLine("Aqui está a lista de funcionários disponível no banco de dados:");
+            
+            var repository = new FuncionarioRepository();
+            IEnumerable<Funcionario> funcionarios = repository.RetrieveAll();
+
+            foreach(var funcionario in funcionarios)
+            {
+                Console.WriteLine();
+                Console.WriteLine($"Nome:......: {funcionario.Nome}");
+                Console.WriteLine($"Matrícula..: {funcionario.Matricula}");
+                Console.WriteLine($"CPF........: {funcionario.Cpf}");
+            }
 
         }
 
