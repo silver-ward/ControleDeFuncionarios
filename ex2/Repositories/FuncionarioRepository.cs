@@ -29,6 +29,16 @@ namespace ex2.Repositories
                 connection.Execute(query,funcionario, commandType:System.Data.CommandType.StoredProcedure);
             }
         }
+
+        public IEnumerable<Funcionario> RetrieveAll()
+        {
+            string query = "SELECT * FROM FUNCIONARIO";
+            using (var connection = new SqlConnection(_appSettings.ConnectionString))
+            {
+                return connection.Query<Funcionario>(query);
+            }
+        }
+
         public void Update(Funcionario funcionario)
         {
             string query = "SP_AlterarFuncionario";
