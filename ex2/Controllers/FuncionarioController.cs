@@ -16,7 +16,7 @@ namespace ex2.Controllers
     public class FuncionarioController
     {
         /// <summary>
-        /// Método para cadastrar Funcionário no banco de dados
+        /// Método para cadastrar um funcionário no banco de dados
         /// </summary>
         public void Cadastrar()
         {
@@ -93,7 +93,7 @@ namespace ex2.Controllers
         }
 
         /// <summary>
-        /// Método para consultar Funcionários no banco de dados
+        /// Método para consultar funcionários no banco de dados
         /// </summary>
         public void ConsultarTodos()
         {
@@ -113,7 +113,7 @@ namespace ex2.Controllers
         }
 
         /// <summary>
-        /// Método para consultar Funcionário por nome no banco de dados
+        /// Método para consultar um funcionário por nome no banco de dados
         /// </summary>
         public void ConsultarPorNome()
         {
@@ -143,7 +143,7 @@ namespace ex2.Controllers
         }
 
         /// <summary>
-        /// Método para alterar Funcionário no banco de dados
+        /// Método para alterar um funcionário no banco de dados
         /// </summary>
         public void Alterar()
         {
@@ -173,11 +173,25 @@ namespace ex2.Controllers
         }
 
         /// <summary>
-        /// Método para excluir Funcionário no banco de dados
+        /// Método para excluir um funcionário no banco de dados
         /// </summary>
         public void Excluir()
         {
+            var repository = new FuncionarioRepository();
+            var funcionario = new Funcionario();
 
+            Guid id;
+            bool guidIsValid = false;
+            do
+            {
+                Console.WriteLine("Informe o ID do funcionário que deseja DELETAR.");
+                string input = Console.ReadLine().Trim();
+                guidIsValid = Guid.TryParse(input, out id);
+            } while (!guidIsValid);
+
+            funcionario.Id = id;
+
+            repository.Delete(funcionario.Id);
         }
     }
 }

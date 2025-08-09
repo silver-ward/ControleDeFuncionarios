@@ -53,8 +53,11 @@ Digite a sua opção e pressione Enter:
             Console.ReadKey();
             break;
         case "5":
+            Console.WriteLine("EXCLUSÃO DE UM FUNCIONÁRIO");
+            funcionarioController.Excluir();
 
             Console.WriteLine();
+            Console.WriteLine("Os dados desse funcionário foram excluídos.");
             Console.WriteLine("Pressione qualquer tecla para voltar ao menu inicial.");
             Console.ReadKey();
             break;
